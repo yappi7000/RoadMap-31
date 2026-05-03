@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>30日間ロードマップ ＋ 3ヶ月後の目標設定</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-50: #E6F1FB;
+    --blue-400: #378ADD;
+    --blue-800: #0C447C;
+    --teal-50: #E1F5EE;
+    --teal-400: #1D9E75;
+    --teal-800: #085041;
+    --purple-50: #EEEDFE;
+    --purple-400: #7F77DD;
+    --purple-800: #3C3489;
+    --gray-50: #F1EFE8;
+    --gray-100: #D3D1C7;
+    --gray-600: #5F5E5A;
+    --gray-900: #2C2C2A;
+    --text: #1a1a18;
+    --text-sub: #5a5a56;
+    --text-muted: #9a9a94;
+    --bg: #faf9f6;
+    --border: rgba(0,0,0,0.08);
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ヘッダー */
+  .header {
+    text-align: center;
+    padding: 3rem 1.5rem 2.5rem;
+    margin-bottom: 2.5rem;
+    background: var(--gray-900);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.015) 20px,
+      rgba(255,255,255,0.015) 40px
+    );
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .header-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .header-title .accent {
+    color: #FAC775;
+  }
+
+  .header-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .header-goals {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .goal-pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 99px;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* フェーズ */
+  .phase { margin-bottom: 2rem; }
+
+  .phase-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+  }
+
+  .phase-a { background: var(--blue-50); }
+  .phase-b { background: var(--teal-50); }
+  .phase-c { background: var(--purple-50); }
+
+  .phase-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 99px;
+    flex-shrink: 0;
+  }
+
+  .num-a { background: var(--blue-800); color: #fff; }
+  .num-b { background: var(--teal-800); color: #fff; }
+  .num-c { background: var(--purple-800); color: #fff; }
+
+  .phase-info { flex: 1; }
+
+  .phase-name {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .name-a { color: var(--blue-800); }
+  .name-b { color: var(--teal-800); }
+  .name-c { color: var(--purple-800); }
+
+  .phase-range {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* ステップカード */
+  .steps { display: flex; flex-direction: column; gap: 10px; }
+
+  .step-card {
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    transition: box-shadow 0.2s;
+  }
+
+  .step-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .step-index {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .idx-a { background: var(--blue-50); color: var(--blue-800); }
+  .idx-b { background: var(--teal-50); color: var(--teal-800); }
+  .idx-c { background: var(--purple-50); color: var(--purple-800); }
+
+  .step-body { flex: 1; min-width: 0; }
+
+  .step-meta {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    margin-bottom: 4px;
+  }
+
+  .step-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+
+  .step-tips {
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--gray-50);
+    font-size: 12px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+
+  .step-tips strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ゴールボックス */
+  .goal-box {
+    background: var(--gray-900);
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .goal-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.015) 20px,
+      rgba(255,255,255,0.015) 40px
+    );
+  }
+
+  .goal-box-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+
+  .goal-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+  }
+
+  .goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .goal-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #FAC775;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .goal-check svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .goal-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.6;
+  }
+
+  .goal-text small {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    margin-top: 2px;
+    line-height: 1.6;
+  }
+
+  .goal-bottom {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 0.5px solid rgba(255,255,255,0.1);
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    position: relative;
+  }
+
+  /* セクション区切り */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0 2rem;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+  }
+  .section-divider-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  /* ゴール後目標設定 */
+  .target-section {
+    margin-bottom: 2.5rem;
+  }
+  .target-header {
+    background: #FEF3D0;
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .target-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 99px;
+    background: #854F0B;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .target-header-text { flex: 1; }
+  .target-header-title { font-size: 15px; font-weight: 700; color: #633806; }
+  .target-header-sub { font-size: 12px; color: #854F0B; margin-top: 2px; }
+
+  .target-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .target-card {
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 1.1rem 1.25rem;
+    transition: box-shadow 0.2s;
+  }
+  .target-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .target-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .target-card-num {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .target-card-num .unit { font-size: 14px; font-weight: 500; color: var(--text-sub); }
+  .target-card-desc {
+    font-size: 12px;
+    color: var(--text-sub);
+    line-height: 1.6;
+    margin-top: 6px;
+  }
+
+  /* 3ヶ月ロードマップ */
+  .month-card {
+    background: #fff;
+    border: 0.5px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .month-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+  .month-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 1rem 1.25rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .month-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .icon-1 { background: #FAECE7; color: #712B13; }
+  .icon-2 { background: #E1F5EE; color: #085041; }
+  .icon-3 { background: #EEEDFE; color: #3C3489; }
+
+  .month-meta { flex: 1; }
+  .month-title { font-size: 15px; font-weight: 700; color: var(--text); }
+  .month-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .month-kpi {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .kpi-num { font-size: 18px; font-weight: 700; color: var(--text); }
+  .kpi-num .kpi-unit { font-size: 12px; font-weight: 500; color: var(--text-sub); }
+  .kpi-label { font-size: 11px; color: var(--text-muted); }
+
+  .month-body { padding: 1rem 1.25rem; }
+  .month-tasks { display: flex; flex-direction: column; gap: 10px; }
+
+  .task-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .task-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .dot-1 { background: #D85A30; }
+  .dot-2 { background: #1D9E75; }
+  .dot-3 { background: #7F77DD; }
+
+  .task-text { font-size: 13px; color: var(--text-sub); line-height: 1.75; }
+  .task-text strong { color: var(--text); font-weight: 500; }
+
+  .month-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .month-footer-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    flex-shrink: 0;
+  }
+  .month-footer-value { font-size: 13px; font-weight: 500; color: var(--text); }
+
+  /* 最終ゴール */
+  .final-box {
+    background: var(--gray-900);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(255,255,255,0.015) 20px,
+      rgba(255,255,255,0.015) 40px
+    );
+  }
+  .final-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    position: relative;
+  }
+  .final-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .final-title .accent { color: #FAC775; }
+
+  .final-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .final-stat {
+    background: rgba(255,255,255,0.06);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 0.875rem 1rem;
+    text-align: center;
+  }
+  .final-stat-num {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FAC775;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .final-stat-num .su { font-size: 12px; font-weight: 500; }
+  .final-stat-label { font-size: 11px; color: rgba(255,255,255,0.4); }
+
+  .final-message {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.8;
+    position: relative;
+  }
+
+  @media (max-width: 480px) {
+    .header-title { font-size: 24px; }
+    .header-goals { gap: 8px; }
+    .goal-pill { font-size: 11px; }
+    .final-stats { grid-template-columns: repeat(3, 1fr); }
+    .final-stat-num { font-size: 16px; }
+    .target-card-num { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <p class="header-eyebrow">完全再現マニュアル</p>
+    <h1 class="header-title">30日間ロードマップ<br><span class="accent">＋ 3ヶ月後の目標設定</span></h1>
+    <p class="header-desc">スキルなし・知識ゼロからでも大丈夫。<br>「順番」通りに1つずつ動くだけで、<br>ポイント・ホテル・現金収入の3つが同時に手に入る。</p>
+    <div class="header-goals">
+      <span class="goal-pill">固定費 → ポイント</span>
+      <span class="goal-pill">ホテル 0円</span>
+      <span class="goal-pill">MNP → 現金</span>
+    </div>
+  </div>
+
+  <!-- フェーズ1 -->
+  <div class="phase">
+    <div class="phase-header phase-a">
+      <span class="phase-num num-a">PHASE 1</span>
+      <div class="phase-info">
+        <p class="phase-name name-a">土台づくり — クレカとポイントを整える</p>
+        <p class="phase-range">1〜10日目</p>
+      </div>
+    </div>
+    <div class="steps">
+
+      <div class="step-card">
+        <div class="step-index idx-a">01</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 1–2 ／ 所要時間：30〜60分</p>
+          <p class="step-title">毎月の固定費をすべて書き出す</p>
+          <p class="step-desc">電気・ガス・水道・スマホ・インターネット・Netflix・Spotifyなど、毎月自動で引き落とされているものを全部リストアップする。銀行の明細やクレカの利用履歴を見れば漏れなく拾える。合計金額を出しておくと、後でポイントへの変換額が一目でわかる。</p>
+          <div class="step-tips"><strong>ポイント：</strong>「クレカ払いに変えられるか？」という目線で1件ずつ確認。口座振替しか対応していないものは除外してOK。変えられるものだけをリストに残す。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-a">02</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 3–5 ／ 所要時間：1〜2時間</p>
+          <p class="step-title">ポイント還元率の高いクレカを1枚選んで申し込む</p>
+          <p class="step-desc">最初から複数枚持つ必要はない。1枚に固定費を集中させることで、ポイントが効率よく貯まる。選ぶ基準は①還元率1%以上②年会費無料または条件付き無料③ホテルポイントに移行できる。三井住友NL・楽天カード・エポスカードなどが初心者向きで審査も通りやすい。</p>
+          <div class="step-tips"><strong>ポイント：</strong>申し込み後はカード到着を待つだけ。通常1〜2週間で届く。入会キャンペーンのポイントを獲得するため、初月に一定額を使うことを忘れずに計画しておく。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-a">03</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 6–8 ／ 所要時間：1〜2時間</p>
+          <p class="step-title">固定費の支払い先をすべてクレカに切り替える</p>
+          <p class="step-desc">DAY 1〜2で作ったリストをもとに、1件ずつ変更手続きをする。各サービスのマイページから「支払い方法の変更」を選んでカード番号を入力するだけ。手間がかかるのは最初だけで、一度設定すれば毎月自動でポイントが貯まり続ける。</p>
+          <div class="step-tips"><strong>ポイント：</strong>スマホ料金は公式サイトから、電気・ガスは各社アプリまたはWebから変更可能。サブスクはPayPayやd払いなど別の決済に紐づいているケースがあるので、必ず変更後に確認する。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-a">04</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 9–10 ／ 所要時間：30分</p>
+          <p class="step-title">ポイントの「使い道」を1つ決めて目標を可視化する</p>
+          <p class="step-desc">ポイントには「ホテルに泊まる」「マイルに換える」「キャッシュバックにする」など複数の使い道がある。最初から全部やろうとすると迷子になるので、まずホテル無料宿泊に絞って動く。具体的に「○○ホテルに1泊タダで泊まる」と決めると、モチベーションが続きやすい。</p>
+          <div class="step-tips"><strong>ポイント：</strong>目標ホテルを1件ブックマークしておく。必要ポイント数も確認しておくと、「あと何ポイントで泊まれる」という進捗が見えてやる気が上がる。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- フェーズ2 -->
+  <div class="phase">
+    <div class="phase-header phase-b">
+      <span class="phase-num num-b">PHASE 2</span>
+      <div class="phase-info">
+        <p class="phase-name name-b">ホテル0円化 — ポイントで泊まる</p>
+        <p class="phase-range">11〜20日目</p>
+      </div>
+    </div>
+    <div class="steps">
+
+      <div class="step-card">
+        <div class="step-index idx-b">05</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 11–13 ／ 所要時間：1〜2時間</p>
+          <p class="step-title">ホテルのポイントプログラムに無料登録する</p>
+          <p class="step-desc">マリオット・IHG・ヒルトン・ハイアットなど主要ホテルチェーンはすべて無料の会員プログラムを持っている。登録するだけでポイントが貯まり始め、一定数で無料宿泊の権利が得られる。クレカとの連携が可能なプログラムを優先して選ぶと、固定費で貯まったポイントがそのままホテルに使える。</p>
+          <div class="step-tips"><strong>ポイント：</strong>初心者はマリオットまたはIHGから始めるのがおすすめ。日本国内のホテル数が多く、比較的少ないポイントで宿泊できる物件も豊富にある。登録後に届くウェルカムボーナスを見逃さないこと。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-b">06</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 14–16 ／ 所要時間：30〜60分</p>
+          <p class="step-title">ポイント宿泊の予約を実際に入れる</p>
+          <p class="step-desc">まず1泊だけでいい。日程・ホテル・必要ポイント数を確認して予約を確定させる。「本当に無料で泊まれるの？」という疑問は、実際に予約画面を進めるだけで解消される。現金が一切かかっていないことを画面で確認する瞬間が、仕組みを実感する最初のターニングポイントになる。</p>
+          <div class="step-tips"><strong>ポイント：</strong>予約は平日や閑散期に設定するとポイント数が少なく済む。繁忙期は必要ポイントが2〜3倍になるホテルもあるので、最初は必要ポイントが少ない日程を狙う。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-b">07</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 17–20 ／ 所要時間：宿泊体験＋記録15分</p>
+          <p class="step-title">実際に泊まって「本来の金額」を記録する</p>
+          <p class="step-desc">ポイント宿泊を体験したら、その部屋が現金でいくらだったかを必ずメモする。例えば「1泊15,000円の部屋を0円で泊まれた」という事実を数字で記録しておく。この「払わなかった金額の積み上げ」が可視化されると、次のアクションに迷いがなくなる。体験して初めて、この仕組みが本物だと腑に落ちる。</p>
+          <div class="step-tips"><strong>ポイント：</strong>チェックアウト後にホテルの公式サイトで「同じ日程の通常料金」を確認してメモする。この金額が「今月の0円で作った価値」になる。SNSに記録する人も多く、続けるモチベーションになる。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- フェーズ3 -->
+  <div class="phase">
+    <div class="phase-header phase-c">
+      <span class="phase-num num-c">PHASE 3</span>
+      <div class="phase-info">
+        <p class="phase-name name-c">現金化 — MNPで収入を作る</p>
+        <p class="phase-range">21〜30日目</p>
+      </div>
+    </div>
+    <div class="steps">
+
+      <div class="step-card">
+        <div class="step-index idx-c">08</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 21–23 ／ 所要時間：1〜2時間</p>
+          <p class="step-title">MNPキャッシュバックの仕組みを理解する</p>
+          <p class="step-desc">MNP（モバイルナンバーポータビリティ）とは、今の電話番号を維持したまま別の通信キャリアに乗り換えることを指す。乗り換え時に各キャリアがキャッシュバックや高額ポイントを提供しており、これを繰り返すことで収入に変えられる。種類は①現金振り込み②PayPay・楽天ポイントなどの電子マネー③端末値引きの3つ。条件・縛り期間・解約ペナルティを事前に必ず確認する。</p>
+          <div class="step-tips"><strong>ポイント：</strong>格安SIM（MVNO）への乗り換えよりも、大手キャリア間の乗り換えのほうが還元額が大きい傾向にある。まず「MNP キャッシュバック 2024」などで最新情報を検索して相場感を把握する。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-c">09</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 24–26 ／ 所要時間：1〜2時間</p>
+          <p class="step-title">乗り換え先を比較して最も得な選択肢を決める</p>
+          <p class="step-desc">還元額の大きさだけで選ぶと、月額料金が高くて結果的に損をすることがある。「キャッシュバック額 − 縛り期間の月額コスト合計」で純利益を計算してから決める。複数の乗り換え候補を表形式で比較すると判断しやすい。家族・パートナーの回線も乗り換え対象にすると、1回の手続きで2〜3倍の収入になる。</p>
+          <div class="step-tips"><strong>ポイント：</strong>店舗よりもオンライン乗り換えのほうがキャッシュバック額が高いケースが多い。各キャリアの公式サイトで「オンライン限定特典」を確認してから手続きに進む。</div>
+        </div>
+      </div>
+
+      <div class="step-card">
+        <div class="step-index idx-c">10</div>
+        <div class="step-body">
+          <p class="step-meta">DAY 27–30 ／ 所要時間：30〜60分</p>
+          <p class="step-title">MNP手続きを完了して初回の現金を受け取る</p>
+          <p class="step-desc">オンラインであれば手続き自体は30〜60分で完了する。MNP予約番号の取得→新キャリアへの申し込み→回線切り替え→現金受け取りの流れを一度経験すれば、次回からはスムーズに動ける。初回の現金が口座に入る瞬間が、「自分にも再現できる」という確信が生まれるタイミングになる。</p>
+          <div class="step-tips"><strong>ポイント：</strong>現金受け取りまでに数週間かかるキャリアもある。申し込み時に「いつ振り込まれるか」を必ず確認してスケジュールに入れておく。受取条件（初月の利用など）を満たさないとキャッシュバックが無効になるので要注意。</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ゴール -->
+  <div class="goal-box">
+    <p class="goal-box-title">30日後のゴール</p>
+    <div class="goal-items">
+      <div class="goal-item">
+        <div class="goal-check">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 5L4 7.5L8.5 2.5" stroke="#2C2C2A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="goal-text">固定費が自動でポイントに変わる仕組みが完成している
+          <small>クレカ1枚に集約済み。毎月何もしなくてもポイントが積み上がる状態。</small>
+        </p>
+      </div>
+      <div class="goal-item">
+        <div class="goal-check">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 5L4 7.5L8.5 2.5" stroke="#2C2C2A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="goal-text">ホテル0円宿泊を体験し「本来の価値」を記録済み
+          <small>現金ゼロで泊まった事実と節約金額を数字で把握している状態。</small>
+        </p>
+      </div>
+      <div class="goal-item">
+        <div class="goal-check">
+          <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 5L4 7.5L8.5 2.5" stroke="#2C2C2A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="goal-text">MNP乗り換えで初回の現金を受け取り済み
+          <small>全体の流れを1回体験し、次回以降の再現手順が頭に入っている状態。</small>
+        </p>
+      </div>
+    </div>
+    <p class="goal-bottom">この3つが揃った状態がスタートライン。ここから先は「繰り返す」だけで収入が積み上がっていく。難しいことは何もない。動いた人だけが実感できる仕組みがここにある。</p>
+  </div>
+
+  <!-- セクション区切り -->
+  <div class="section-divider">
+    <span class="section-divider-label">NEXT STAGE</span>
+  </div>
+
+  <!-- ゴール後の目標設定 -->
+  <div class="target-section">
+    <div class="target-header">
+      <span class="target-badge">TARGET</span>
+      <div class="target-header-text">
+        <p class="target-header-title">3ヶ月後に目指す数字</p>
+        <p class="target-header-sub">継続すれば誰でも現実的に到達できるライン</p>
+      </div>
+    </div>
+    <div class="target-grid">
+      <div class="target-card">
+        <p class="target-card-label">MONTHLY CASH</p>
+        <p class="target-card-num">10<span class="unit">万円〜</span></p>
+        <p class="target-card-desc">MNP複数回転＋ポイント換金＋入会ボーナスを組み合わせた月間現金収入の目安</p>
+      </div>
+      <div class="target-card">
+        <p class="target-card-label">HOTEL COST</p>
+        <p class="target-card-num">0<span class="unit">円</span></p>
+        <p class="target-card-desc">ポイントとステータスを活用し、出張・旅行の宿泊費を実質ゼロに維持する</p>
+      </div>
+      <div class="target-card">
+        <p class="target-card-label">FIXED COST RATIO</p>
+        <p class="target-card-num">80<span class="unit">%回収</span></p>
+        <p class="target-card-desc">毎月の固定費の8割以上をポイントで相殺できる状態を安定させる</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- セクション区切り -->
+  <div class="section-divider">
+    <span class="section-divider-label">3 MONTH ROADMAP</span>
+  </div>
+
+  <!-- 3ヶ月ロードマップ -->
+
+  <!-- 1ヶ月目 -->
+  <div class="month-card">
+    <div class="month-header">
+      <div class="month-icon icon-1">M1</div>
+      <div class="month-meta">
+        <p class="month-title">仕組みを「完成」させる月</p>
+        <p class="month-sub">1ヶ月目 ／ 30日ロードマップの完走</p>
+      </div>
+      <div class="month-kpi">
+        <p class="kpi-num">1〜3<span class="kpi-unit">万円</span></p>
+        <p class="kpi-label">目安収入</p>
+      </div>
+    </div>
+    <div class="month-body">
+      <div class="month-tasks">
+        <div class="task-row">
+          <div class="task-dot dot-1"></div>
+          <p class="task-text"><strong>クレカ切り替え完了・ポイント自動積立スタート：</strong>固定費の支払いを1枚に集約し、毎月自動でポイントが貯まる土台を完成させる。初月から入会ボーナスを獲得できていれば上々。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-1"></div>
+          <p class="task-text"><strong>ホテル0円宿泊を1回体験する：</strong>ポイント宿泊を実際に経験し、仕組みを頭だけでなく体で理解する。「本来の宿泊料金」を記録しておくことが次の行動への燃料になる。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-1"></div>
+          <p class="task-text"><strong>MNP初回乗り換えを完了する：</strong>1回乗り換えて現金を受け取る。条件・タイミング・振込時期の感覚をつかみ、2回目以降のルーティンの土台を作る。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-1"></div>
+          <p class="task-text"><strong>収支を記録する習慣をスタート：</strong>ポイント残高・現金収入・節約できた金額をノートやスプレッドシートで月1回まとめる。可視化することでモチベーションが維持しやすくなる。</p>
+        </div>
+      </div>
+      <div class="month-footer">
+        <span class="month-footer-label">MILESTONE</span>
+        <span class="month-footer-value">「自分にも確実に再現できる」という手応えを持つ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2ヶ月目 -->
+  <div class="month-card">
+    <div class="month-header">
+      <div class="month-icon icon-2">M2</div>
+      <div class="month-meta">
+        <p class="month-title">仕組みを「拡張」する月</p>
+        <p class="month-sub">2ヶ月目 ／ 収入源を複数に増やす</p>
+      </div>
+      <div class="month-kpi">
+        <p class="kpi-num">5〜8<span class="kpi-unit">万円</span></p>
+        <p class="kpi-label">目安収入</p>
+      </div>
+    </div>
+    <div class="month-body">
+      <div class="month-tasks">
+        <div class="task-row">
+          <div class="task-dot dot-2"></div>
+          <p class="task-text"><strong>MNPを家族・パートナーの回線にも展開する：</strong>自分だけでなく家族や同居パートナーの回線も乗り換えることで、1回の手間で2〜3倍の収入になる。「MNPの窓口」として家庭内で役割を持つと動きやすい。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-2"></div>
+          <p class="task-text"><strong>入会ボーナスの大きいクレカを計画的に追加する：</strong>新規入会キャンペーンで数万円相当のポイントが得られるカードを調べ、審査に通りやすい順に申し込む。複数枚を同時申し込みすると審査に影響するため、1〜2枚ずつ間隔を空けて進める。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-2"></div>
+          <p class="task-text"><strong>ホテルのステータス取得を意識して宿泊数を管理する：</strong>各チェーンのステータス条件（例：マリオットシルバーは10泊）を把握し、宿泊数をカレンダーで管理する。ステータスが上がると朝食無料・部屋のアップグレードなど追加特典が自動で付いてくる。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-2"></div>
+          <p class="task-text"><strong>ポイントの最適な使い道を比較検討する：</strong>宿泊・マイル・キャッシュバック・ギフトカードなど複数の出口を比較して、自分のライフスタイルに合った最大化ルートを見つける。1ポイントあたりの価値が最も高い使い道に集中する。</p>
+        </div>
+      </div>
+      <div class="month-footer">
+        <span class="month-footer-label">MILESTONE</span>
+        <span class="month-footer-value">月5万円以上の副収入を安定して作れるようになる</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3ヶ月目 -->
+  <div class="month-card">
+    <div class="month-header">
+      <div class="month-icon icon-3">M3</div>
+      <div class="month-meta">
+        <p class="month-title">仕組みを「自動化」する月</p>
+        <p class="month-sub">3ヶ月目 ／ 手間を減らして収入を最大化</p>
+      </div>
+      <div class="month-kpi">
+        <p class="kpi-num">10<span class="kpi-unit">万円〜</span></p>
+        <p class="kpi-label">目安収入</p>
+      </div>
+    </div>
+    <div class="month-body">
+      <div class="month-tasks">
+        <div class="task-row">
+          <div class="task-dot dot-3"></div>
+          <p class="task-text"><strong>MNPのルーティンをカレンダーで完全管理する：</strong>縛り期間終了日・最適な乗り換えタイミング・各回線の状況をスプレッドシートで一元管理する。先手を打って動けるようになれば、機会損失がゼロになる。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-3"></div>
+          <p class="task-text"><strong>ポイントの「出口戦略」を確定させて無駄ゼロにする：</strong>ホテル・マイル・キャッシュバックへの最適ルートを自分の中で決定する。ポイントの有効期限も管理して失効ゼロを徹底する。期限が迫っているものは即座に使い道を確定させる。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-3"></div>
+          <p class="task-text"><strong>SNSやLINEで再現記録を発信して収入源を増やす：</strong>「自分でやってみた結果」をXやノートに記録・発信すると、クレカやMNPのアフィリエイト収入・相談料・コンサル依頼につながる。発信が営業なしで次の収入を生む仕組みになる。</p>
+        </div>
+        <div class="task-row">
+          <div class="task-dot dot-3"></div>
+          <p class="task-text"><strong>3ヶ月の実績をもとに次の計画を立てる：</strong>収支実績・節約額・ポイント積立額をまとめて振り返る。うまくいったことと改善点を整理し、4ヶ月目以降の目標を月15万円〜に設定して動き出す。</p>
+        </div>
+      </div>
+      <div class="month-footer">
+        <span class="month-footer-label">MILESTONE</span>
+        <span class="month-footer-value">月10万円超えを安定させ、発信収入の1本目を作る</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 最終ゴール -->
+  <div class="final-box">
+    <p class="final-eyebrow">3 MONTHS GOAL</p>
+    <p class="final-title">3ヶ月後、<span class="accent">生活コストが<br>ほぼゼロになっている</span></p>
+    <div class="final-stats">
+      <div class="final-stat">
+        <p class="final-stat-num">10<span class="su">万円〜</span></p>
+        <p class="final-stat-label">月間現金収入</p>
+      </div>
+      <div class="final-stat">
+        <p class="final-stat-num">0<span class="su">円</span></p>
+        <p class="final-stat-label">ホテル宿泊費</p>
+      </div>
+      <div class="final-stat">
+        <p class="final-stat-num">80<span class="su">%</span></p>
+        <p class="final-stat-label">固定費の回収率</p>
+      </div>
+    </div>
+    <p class="final-message">特別なスキルもツールも人脈も不要。<br>必要なのは「順番通りに動く」という一歩だけ。<br>このロードマップを最後まで実行した人が、3ヶ月後に月10万円の仕組みを手にしている。<br>まず30日、動いてみることがすべての始まり。</p>
+  </div>
+
+</div>
+</body>
+</html>
