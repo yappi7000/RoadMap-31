@@ -7,28 +7,29 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Sans+JP:wght=100..900&display=swap" rel="stylesheet">
     <!-- Font Awesome (アイコン用) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- 既存のベーススタイルを継承 --- */
+        /* --- カラーパレットを「白とブルー基調」に刷新 --- */
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
-            --bg-tertiary: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-blue: #38bdf8;
-            --accent-green: #34d399;
-            --accent-purple: #c084fc;
-            --accent-orange: #fb923c;
-            --border-color: #475569;
+            --bg-primary: #f8fafc;       /* 清潔感のあるプレーンな白に近いグレー */
+            --bg-secondary: #ffffff;     /* カードやナビ用の純白 */
+            --bg-tertiary: #f1f5f9;      /* タスクリスト用の薄いグレー */
+            --text-primary: #0f172a;     /* 視認性の高い濃いネイビー */
+            --text-secondary: #475569;   /* 説明文用の落ち着いたグレー */
+            --accent-blue: #0284c7;      /* メインとなる鮮やかなブルー */
+            --accent-light-blue: #e0f2fe;/* アクセント用の薄いブルー */
+            --accent-green: #10b981;     /* チェックマーク用グリーン */
+            --accent-purple: #7c3aed;     /* マイルストーン用パープル */
+            --accent-orange: #ea580c;     /* Tips用オレンジ */
+            --border-color: #cbd5e1;     /* 区切り線用の薄いグレー */
             --font-sans: 'Noto Sans JP', sans-serif;
             --font-mono: 'DM Mono', monospace;
             /* 誘導ボタン用カラー */
             --brand-line: #06c755;
-            --brand-x: #ffffff;
+            --brand-x: #0f172a;
         }
 
         * {
@@ -63,7 +64,7 @@
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 15px;
-            background: linear-gradient(to right, var(--accent-blue), var(--accent-green));
+            background: linear-gradient(to right, var(--accent-blue), #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -73,13 +74,14 @@
             font-size: 1.1rem;
         }
 
-        /* --- 【新規】クイックナビゲーション スタイル --- */
+        /* --- クイックナビゲーション スタイル --- */
         .nav-container {
             background-color: var(--bg-secondary);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .nav-title {
@@ -96,7 +98,7 @@
 
         .nav-links {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1xl));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             list-style: none;
         }
@@ -116,8 +118,9 @@
         }
 
         .nav-links a:hover {
-            background-color: var(--border-color);
+            background-color: var(--accent-light-blue);
             border-color: var(--accent-blue);
+            color: var(--accent-blue);
             transform: translateY(-2px);
         }
 
@@ -126,16 +129,17 @@
             color: var(--accent-blue);
         }
 
-        /* --- 既存のコンテンツ・タイムライン スタイル --- */
+        /* --- コンテンツ・タイムライン スタイル --- */
         h2.section-title {
             font-size: 1.6rem;
             margin: 40px 0 20px;
             padding-left: 12px;
             border-left: 4px solid var(--accent-blue);
+            color: var(--accent-blue);
             display: flex;
             align-items: center;
             gap: 10px;
-            scroll-margin-top: 20px; /* ナビリンクで飛んだ時の余白 */
+            scroll-margin-top: 20px;
         }
 
         .timeline {
@@ -153,11 +157,13 @@
             padding: 25px;
             margin-bottom: 30px;
             transition: transform 0.2s ease, border-color 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .day-card:hover {
             transform: translateY(-2px);
-            border-color: var(--bg-tertiary);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
 
         .day-card::before {
@@ -174,13 +180,13 @@
 
         .day-card.active::before {
             background-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.2);
         }
 
         .day-badge {
             font-family: var(--font-mono);
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--accent-blue);
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -189,7 +195,7 @@
 
         .day-card h3 {
             font-size: 1.3rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 12px;
         }
 
@@ -211,6 +217,7 @@
             position: relative;
             padding-left: 25px;
             margin-bottom: 8px;
+            color: var(--text-primary);
         }
 
         .task-list li:last-child {
@@ -228,26 +235,26 @@
         .tips-box {
             margin-top: 15px;
             padding: 12px 15px;
-            background-color: rgba(251, 146, 60, 0.1);
+            background-color: rgba(234, 88, 12, 0.08);
             border-left: 3px solid var(--accent-orange);
             border-radius: 0 8px 8px 0;
             font-size: 0.85rem;
-            color: #fed7aa;
+            color: #7c2d12;
         }
 
         .tips-box strong {
             color: var(--accent-orange);
         }
 
-        /* --- 【新規】コンバージョンエリア（誘導ボタン） スタイル --- */
+        /* --- コンバージョンエリア（誘導ボタン） スタイル --- */
         .cta-container {
             margin-top: 60px;
             padding: 40px 30px;
-            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%); /* ブルーとグリーンの爽やかなグラデーション */
             border: 1px solid var(--border-color);
             border-radius: 16px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
         .cta-title {
@@ -290,26 +297,26 @@
         .btn-line {
             background-color: var(--brand-line);
             color: #ffffff;
-            box-shadow: 0 4px 14px rgba(6, 199, 85, 0.3);
+            box-shadow: 0 4px 14px rgba(6, 199, 85, 0.2);
         }
 
         .btn-line:hover {
             background-color: #05b04b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.5);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
         }
 
         /* X(旧Twitter)ボタン */
         .btn-x {
             background-color: var(--brand-x);
-            color: #000000;
-            box-shadow: 0 4px 14px rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
         }
 
         .btn-x:hover {
-            background-color: #e2e8f0;
+            background-color: #1e293b;
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.4);
         }
 
         .btn i {
@@ -334,10 +341,10 @@
             <p>未経験から3ヶ月で月10万円の継続収益を構築するステップバイステップ</p>
         </header>
 
-        <!-- 【新規】クイックナビゲーション（目次） -->
+        <!-- クイックナビゲーション（目次） -->
         <nav class="nav-container">
             <div class="nav-title">
-                <i class="fa-solid to fa-bars-staggered"></i> 目次 / クイックジャンプ
+                <i class="fa-solid fa-bars-staggered"></i> 目次 / クイックジャンプ
             </div>
             <ul class="nav-links">
                 <li><a href="#phase1"><i class="fa-solid fa-graduation-cap"></i> DAY 1–10: 基礎知識・準備</a></li>
@@ -367,7 +374,7 @@
                 <h3>軍資金の確保と必要ツールの準備</h3>
                 <p>MNP副業を円滑に進めるためには、事前の環境構築が不可欠です。契約時の事務手数料や数ヶ月分の維持費をカバーするための資金準備と、契約管理用のツールを用意します。</p>
                 <ul class="task-list">
-                    <li>初期費用（目安：3万〜5万円）の準備（自己資金または自己アフィリエイト・不用品転売などで調達）</li>
+                    <li>初期費用（目安：3万〜5万円）の準備（自己資金または自己アフィリエイト・不用品転転売などで調達）</li>
                     <li>本人確認書類（マイナンバーカード、運転免許証など）の有効期限チェック</li>
                     <li>契約管理用スプレッドシート（またはExcel）の作成（契約日、解約月、月額維持費の管理用）</li>
                 </ul>
@@ -399,7 +406,7 @@
                     <li>SIMカードが手元に届いた後の開通確認と、初期設定の完了</li>
                 </ul>
                 <div class="tips-box">
-                    <strong>💡 2026年最新Tips：</strong> 現在はpovoなどの基本料0円プランや、事務手数料が安いMVNOを組み合わせた弾構築が主流です。ただし、短期間での大量解約は厳禁です。
+                    <strong>💡 最新Tips：</strong> 現在はpovoなどの基本料0円プランや、事務手数料が安いMVNOを組み合わせた弾構築が主流です。ただし、短期間での大量解約は厳禁です。
                 </div>
             </div>
 
@@ -436,7 +443,7 @@
                 <h3>MNP予約番号の発行と事前審査対策</h3>
                 <p>狙う案件が決まったら、DAY 11–15で仕込んだ弾からMNP予約番号を発行します。また、当日に店舗でスムーズに契約が通るよう、必要書類を最終チェックします。</p>
                 <ul class="task-list">
-                    <li>乗り換え元MVNOのマイページからMNP予約番号の発行申請（有効期限残りに注意）</li>
+                    <li>乗り換え元MVNOのマイページからMNP予約番号の発行申請（有効期限残みに注意）</li>
                     <li>店舗への事前予約、または混雑を避けた時間帯の訪問スケジューリング</li>
                     <li>オプション強制加入条件の有無、およびその解約可能時期の確認（店員への確認リスト作成）</li>
                 </ul>
@@ -457,19 +464,19 @@
 
         <!-- MILESTONE -->
         <h2 id="milestone" class="section-title"><i class="fa-solid fa-flag-checkered"></i> 3ヶ月目以降のゴール設定</h2>
-        <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 20px;">
+        <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
             <h3 style="margin-bottom: 15px; color: var(--accent-purple);">🚀 月10万円を安定して稼ぐスキームへの昇華</h3>
             <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
                 最初の30日間で1〜2回線のMNPに成功したら、次はその経験を「仕組み化」して拡大していきます。
             </p>
-            <ul class="task-list" style="background-color: var(--bg-primary); border: 1px solid var(--border-color);">
+            <ul class="task-list" style="background-color: var(--bg-tertiary); border: 1px solid var(--border-color);">
                 <li><strong>2ヶ月目：</strong> 家族名義の協力（名義分散）を得て、同時に動かせる回線数を4〜6回線に拡大</li>
                 <li><strong>3ヶ月目：</strong> 複数キャリア（SoftBank系・UQ系など）の併用による、最適なデュアルSIM運用の内製化</li>
                 <li><strong>仕組み化：</strong> SNSやLINEでの再現記録の発信、同じ志を持つ仲間とのリアルタイムな店舗情報シェアコミュニティの活用</li>
             </ul>
         </div>
 
-        <!-- 【新規】コンバージョンエリア（誘導ボタン） -->
+        <!-- コンバージョンエリア（誘導ボタン） -->
         <div class="cta-container">
             <h3 class="cta-title">最新のMNP案件・攻略情報をリアルタイムで配信中！</h3>
             <p class="cta-text">
@@ -477,7 +484,7 @@
                 管理シートの具体的なテンプレートは、公式SNS＆LINEで限定公開しています。
             </p>
             <div class="cta-buttons">
-                <!-- LINE誘導ボタン -->
+                <!-- LINE誘導ボタン（ご自身のURLに書き換えてください） -->
                 <a href="https://lin.ee/AsTWK4D" class="btn btn-line" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-line"></i> 公式LINEで限定情報を探す
                 </a>
