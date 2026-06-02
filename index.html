@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MNP副業 30日間完全ロードマップ ＋ 3ヶ月後の目標設定</title>
+<title>MNP副業 30日間完全ロードマップ</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap');
 
@@ -26,51 +26,36 @@
 
   .divider { border:none; border-top:2px dashed #e0e0e0; margin:36px 0; }
 
+  /* 目次ナビゲーション */
+  .toc-box { background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:20px; margin-bottom:36px; }
+  .toc-title { font-size:13px; font-weight:700; color:#475569; letter-spacing:0.05em; margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+  .toc-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+  .toc-item { background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; text-decoration:none; color:inherit; transition:all 0.2s; }
+  .toc-item:hover { border-color:#1a3a8f; background:#f8fafc; }
+  .toc-tag { font-size:10px; font-weight:700; display:block; margin-bottom:2px; color:#1a3a8f; }
+  .toc-name { font-size:12px; font-weight:700; color:#1a1a1a; }
+
   /* カード */
   .card { border-radius:12px; padding:18px 20px; margin-bottom:12px; }
-  .card-grid { display:grid; gap:12px; margin-top:14px; }
-  .card-grid-2 { grid-template-columns:1fr 1fr; }
-  .card-grid-3 { grid-template-columns:1fr 1fr 1fr; }
+  
+  /* ★【C】だけを目立たせる特別仕様クラス */
+  .step-item.featured-goal { background:#fefce8; border:2px solid #f97316; box-shadow:0 4px 12px rgba(249,115,22,0.12); }
+  .step-item.featured-goal .step-num { background:#f97316; color:#fff; }
+  .step-item.featured-goal .step-title { color:#ea580c; font-size:15px; }
 
-  /* フロー */
-  .flow-row { display:flex; align-items:center; gap:10px; margin:16px 0; flex-wrap:wrap; }
-  .flow-box { flex:1; min-width:90px; border-radius:10px; padding:12px 14px; text-align:center; }
-  .flow-box .fl-label { font-size:10px; font-weight:700; letter-spacing:0.08em; margin-bottom:4px; }
-  .flow-box .fl-val { font-size:13px; font-weight:700; line-height:1.4; }
-  .flow-arrow { font-size:20px; color:#999; flex-shrink:0; }
-
-  /* ステップ */
-  .step-list { display:flex; flex-direction:column; gap:12px; margin-top:14px; }
-  .step-item { display:flex; gap:14px; align-items:flex-start; }
+  /* ステップ・リスト */
+  .step-list { display:flex; flex-direction:column; gap:16px; margin-top:14px; }
+  .step-item { display:flex; gap:14px; align-items:flex-start; background:#f8fafc; padding:16px; border-radius:10px; border:1px solid #e2e8f0; }
   .step-num { width:28px; height:28px; min-width:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; margin-top:2px; }
-  .step-content .step-title { font-size:14px; font-weight:700; margin-bottom:4px; }
-  .step-content .step-desc { font-size:13px; color:#555; line-height:1.7; }
+  .step-content .step-title { font-size:14px; font-weight:700; margin-bottom:6px; color:#0c1445; }
+  .step-content .step-desc { font-size:13px; color:#475569; line-height:1.7; }
 
-  /* 計算表 */
-  .calc-table { width:100%; border-radius:12px; overflow:hidden; margin-top:14px; }
-  .calc-row { display:flex; justify-content:space-between; align-items:center; padding:11px 18px; font-size:14px; }
-  .calc-row:nth-child(odd) { background:#f8f8f5; }
-  .calc-total { font-weight:700; font-size:17px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center; }
-
-  /* まとめ */
+  /* まとめ・メッセージ */
   .summary-box { border-radius:14px; padding:24px 28px; margin-top:28px; }
-
-  /* テーブル */
-  table { width:100%; border-collapse:collapse; font-size:13px; margin-top:12px; }
-  th { padding:10px 14px; text-align:left; font-weight:700; font-size:12px; }
-  td { padding:9px 14px; border-top:1px solid #eee; vertical-align:middle; }
-
-  /* クイックジャンプ・ナビ */
-  .nav-box { display: block; text-decoration: none; color: inherit; transition: background 0.2s; }
-  .nav-box:hover { background: #dbeafe !important; }
-
-  /* ユーティリティ */
-  .bg-red-light    { background:#fef2f2; border:1px solid #fecaca; }
-  .bg-green-light  { background:#f0fdf4; border:1px solid #bbf7d0; }
-  .bg-yellow-light { background:#fefce8; border:1px solid #fde047; }
-  .text-red   { color:#dc2626; }
-  .text-green { color:#16a34a; }
-  .tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-right:4px; }
+  
+  /* 次へのアクションリンクボタン */
+  .next-page-btn { display:block; text-align:center; background:linear-gradient(135deg, #f97316 0%, #ea580c 100%); color:#fff; text-decoration:none; font-weight:700; font-size:15px; padding:16px; border-radius:10px; margin-top:20px; box-shadow:0 4px 14px rgba(234,88,12,0.3); transition: transform 0.2s; }
+  .next-page-btn:hover { transform: translateY(-2px); }
 
   /* ===== テーマ: ネイビー ===== */
   .theme-navy .page-header { background:linear-gradient(135deg,#0c1445 0%,#1a3a8f 60%,#2563eb 100%); color:#fff; }
@@ -79,83 +64,71 @@
   .theme-navy .page-subtitle { color:rgba(255,255,255,0.8); }
   .theme-navy .section-label { color:#1d4ed8; }
   .theme-navy .section h2 { color:#0c1445; }
-  .theme-navy .flow-box { background:#eff6ff; }
-  .theme-navy .flow-box .fl-label { color:#1d4ed8; }
-  .theme-navy .flow-box .fl-val { color:#0c1445; }
   .theme-navy .step-num { background:#1a3a8f; color:#fff; }
-  .theme-navy .card { background:#eff6ff; border:1px solid #bfdbfe; }
-  .theme-navy .card.featured { background:#dbeafe; border:2px solid #1d4ed8; }
-  .theme-navy .calc-total { background:#0c1445; color:#fff; }
+  .theme-navy .card.featured { background:#eff6ff; border:2px solid #1d4ed8; }
   .theme-navy .summary-box { background:#eff6ff; border:2px solid #bfdbfe; }
-  .theme-navy th { background:#0c1445; color:#fff; }
-  .theme-navy tr:nth-child(even) td { background:#eff6ff; }
 
   @media print { .page { box-shadow:none; margin-bottom:0; page-break-after:always; } }
   @media (max-width:600px) {
     .page-content { padding:0 20px 32px; }
     .page-header  { padding:28px 20px 20px; }
-    .card-grid-2,.card-grid-3 { grid-template-columns:1fr; }
+    .toc-grid { grid-template-columns:1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- =====================================================
-  メインコンテンツ：30日間完全ロードマップ
-====================================================== -->
 <div class="page theme-navy">
   <div class="page-header">
     <span class="badge">🚀 LINE登録特典 — 実践型バイブル</span>
     <h1 class="page-title">MNP副業 30日間完全ロードマップ<br>＋3ヶ月後の目標設定</h1>
-    <p class="page-subtitle">📘 未経験からステップバイステップで確実な継続収益スキームを構築するための実践教科書です。</p>
+    <p class="page-subtitle">📘 未経験からステップバイステップで、リスクを抑えて「自力でお金を生み出す感覚」を掴み、一生モノのビジネス力を構築するための実践教科書です。</p>
   </div>
   
   <div class="page-content">
 
     <!-- クイックジャンプ（目次） -->
-    <div class="section" style="margin-top: 28px;">
-      <div class="card" style="background:#f8f8f5; border:1px solid #e0e0e0; padding:24px;">
-        <div style="font-size:13px; font-weight:700; color:#1a3a8f; margin-bottom:14px;">🧭 目次 / クイックジャンプ</div>
-        <div class="card-grid card-grid-2">
-          <a href="#day1" class="nav-box card featured" style="margin-bottom:0; padding:14px;">
-            <div style="font-weight:700; font-size:13px; color:#0c1445;">🎓 DAY 1-10</div>
-            <div style="font-size:12px; color:#444; margin-top:2px;">基礎知識の習得と事前準備</div>
-          </a>
-          <a href="#day11" class="nav-box card" style="margin-bottom:0; padding:14px;">
-            <div style="font-weight:700; font-size:13px; color:#0c1445;">📱 DAY 11-20</div>
-            <div style="font-size:12px; color:#444; margin-top:2px;">弾構築とシミュレーション</div>
-          </a>
-          <a href="#day21" class="nav-box card" style="margin-bottom:0; padding:14px;">
-            <div style="font-weight:700; font-size:13px; color:#0c1445;">🏪 DAY 21-30</div>
-            <div style="font-size:12px; color:#444; margin-top:2px;">案件開拓と初契約の実践</div>
-          </a>
-          <a href="#milestone" class="nav-box card" style="margin-bottom:0; padding:14px; border:1px dashed #1a3a8f;">
-            <div style="font-weight:700; font-size:13px; color:#1d4ed8;">🏁 3ヶ月目以降のゴール</div>
-            <div style="font-size:12px; color:#444; margin-top:2px;">月10万円を稼ぐ仕組み化</div>
-          </a>
-        </div>
+    <div class="toc-box">
+      <div class="toc-title">🧭 目次 / クイックジャンプ</div>
+      <div class="toc-grid">
+        <a href="#phase1" class="toc-item">
+          <span class="toc-tag">🎓 DAY 1-10</span>
+          <span class="toc-name">基礎知識の習得と事前準備</span>
+        </a>
+        <a href="#phase2" class="toc-item">
+          <span class="toc-tag">📱 DAY 11-20</span>
+          <span class="toc-name">弾構築とシミュレーション</span>
+        </a>
+        <a href="#phase3" class="toc-item">
+          <span class="toc-tag">🏪 DAY 21-30</span>
+          <span class="toc-name">案件開拓と初契約の実践</span>
+        </a>
+        <a href="#milestone" class="toc-item">
+          <span class="toc-tag">🏁 3ヶ月目以降のゴール</span>
+          <span class="toc-name">時代に左右されない仕組み化</span>
+        </a>
       </div>
     </div>
 
-    <!-- DAY 1-10 -->
-    <div id="day1" class="section">
+    <!-- PHASE 01 -->
+    <div id="phase1" class="section">
       <div class="section-label">📌 PHASE 01 ｜ DAY 1 - 10</div>
       <h2>🎓 基礎知識の習得と事前準備</h2>
       <p class="body-text">最初の10日間は、MNPの仕組みを完全に腹落ちさせ、実践で絶対に失敗しないための土台を固める期間です。</p>
-
+      
       <div class="step-list">
         <div class="step-item">
           <div class="step-num">1</div>
           <div class="step-content">
             <div class="step-title">仕組みの理解とルール確認（DAY 01-03）</div>
-            <div class="step-desc">「なぜ他社に乗り換えるだけで利益が出るのか」の構造を100%理解します。併せて、携帯キャリア各社の最新の審査基準やブラックリストの判定条件を頭叩き込みます。</div>
+            <div class="step-desc">「なぜ他社に乗り換えるだけで利益が出るのか」の構造を100%理解します。併せて、携帯キャリア各社の最新の審査基準やブラックリストの判定条件を頭に叩き込みます。</div>
           </div>
         </div>
         <div class="step-item">
           <div class="step-num">2</div>
           <div class="step-content">
             <div class="step-title">必要書類・インフラの完全準備（DAY 04-07）</div>
-            <div class="step-desc">契約時に求められる本人確認書類（運転免許証、マイナンバーカード等）や、引き落とし用のクレジットカード・金融口座を確実に手配します。</div>
+            <div class="step-desc">契約時に求められる本人確認書類（運転免許証や各種証明書など）や、引き落とし用のクレジットカード・金融口座を確実に手配します。</div>
           </div>
         </div>
         <div class="step-item">
@@ -170,12 +143,12 @@
 
     <hr class="divider">
 
-    <!-- DAY 11-20 -->
-    <div id="day11" class="section">
+    <!-- PHASE 02 -->
+    <div id="phase2" class="section">
       <div class="section-label">📌 PHASE 02 ｜ DAY 11 - 20</div>
       <h2>📱 弾（たま）構築と収支シミュレーション</h2>
       <p class="body-text">中盤の10日間は、乗り換えの元手となる「仕込み回線」を実際に用意し、具体的な利益予想を数字に落とし込むフェーズです。</p>
-
+      
       <div class="step-list">
         <div class="step-item">
           <div class="step-num">4</div>
@@ -210,12 +183,12 @@
 
     <hr class="divider">
 
-    <!-- DAY 21-30 -->
-    <div id="day21" class="section">
+    <!-- PHASE 03 -->
+    <div id="phase3" class="section">
       <div class="section-label">📌 PHASE 03 ｜ DAY 21 - 30</div>
       <h2>🏪 案件開拓と初契約の実践</h2>
-      <p class="body-text">最後の10日間で、ついに実際の利益を確定させに行きます。手配師の活用、店舗での契約、そして現金化までを一気に駆け抜けます。</p>
-
+      <p class="body-text">最後の10日間で、ついに実際の利益を確定させに行きます。手配師の活用、店舗での契約、包装維持、そして売却までを一気に駆け抜けます。</p>
+      
       <div class="step-list">
         <div class="step-item">
           <div class="step-num">8</div>
@@ -243,49 +216,57 @@
 
     <hr class="divider">
 
-    <!-- 3ヶ月後の目標設定（出口戦略の先へ） -->
+    <!-- MILESTONE：【C】を強力に色分け＆ビジネスの本質へ完全リライト -->
     <div id="milestone" class="section">
-      <div class="section-label" style="color:#1d4ed8;">🏁 MILESTONE ｜ 3ヶ月目以降のゴール</div>
-      <h2>📈 月10万円を稼ぐ継続収益スキームの構築</h2>
-      <p class="body-text">30日間のロードマップをクリアし、1回きりの利益で終わらせてはもったいありません。ここからが本格的な資産構築のスタートです。</p>
+      <div class="section-label">🏁 MILESTONE ｜ 3ヶ月目以降のゴール</div>
+      <h2>📈 利益を1回で終わらせず「時代に左右されないビジネスの力」へ</h2>
+      <p class="body-text">今、MNPの市場にも様々な規制が入り、これまで通りの単純な手法は通用しなくなっていきます。市場は常に変わり続けます。だからこそ、一度きりの転売利益で満足して終わるのではなく、この経験を<strong>『どんな時代・市場でも自力で生き残れる本質的なスキル』</strong>へと昇華させる必要があります。</p>
 
       <div class="card featured">
-        <div style="font-size:14px; font-weight:700; color:#0c1445; margin-bottom:12px;">🌟 継続して月10万円を生み出す3ステップ</div>
+        <div style="font-size:14px; font-weight:700; color:#0c1445; margin-bottom:12px;">🌟 目先の利益を「一生モノの資産」に変える3つの戦略</div>
         
         <div class="step-list" style="margin-top:0;">
-          <div class="step-item">
-            <div class="step-num" style="background:#1d4ed8;">A</div>
+          <div class="step-item" style="background:#fff;">
+            <div class="step-num">A</div>
             <div class="step-content">
-              <div class="step-title">複数名義・家族運用の仕組み化</div>
-              <div class="step-desc">ご自身の名義だけでなく、ルールを正しく守った上で「利用者登録」を駆使し、家族名義などを含めた複数回線のローテーションを組みます。これにより、毎月・毎シーズン途切れることなく高額案件を回せる「仕組み」が完成します。</div>
+              <div class="step-title">市場の変化を捉える「情報収集・分析力」の確立</div>
+              <div class="step-desc">規制が入るということは、裏を返せば「新しい抜け道や優良案件がクローズド化する」ということです。信頼できる手配師や独自のネットワークを強固にし、一般には出回らない店舗限定案件をいち早くキャッチする仕組みを整え、市場の変化に動じない立ち回りを身につけます。</div>
             </div>
           </div>
-          <div class="step-item">
-            <div class="step-num" style="background:#1d4ed8;">B</div>
+          <div class="step-item" style="background:#fff;">
+            <div class="step-num">B</div>
             <div class="step-content">
-              <div class="step-title">手配師・コミュニティの常時活用</div>
-              <div class="step-desc">一度利益を出した手配師やコミュニティとの繋がりを密にし、一般のネット上には絶対に出回らない「店舗限定の極秘クローズド案件」の案内を常に優先的に受け取れるポジションを確立します。</div>
+              <div class="step-title">リスクゼロで掴んだ「自力で稼ぐ感覚」の再現化</div>
+              <div class="step-desc">スマホとクレカという身近な道具を使い、自分の頭と足を動かして最初の利益を生み出したという「成功体験」こそが最大の資産です。これを家族運用や複数名義の仕組み化へと応用し、労働に依存しない効率的なキャッシュフローの回し方を体得します。</div>
             </div>
           </div>
-          <div class="step-item">
-            <div class="step-num" style="background:#1d4ed8;">C</div>
+          
+          <!-- ★【C】：強力に色分けし、固定ポストの世界観へ完全リライト -->
+          <div class="step-item featured-goal">
+            <div class="step-num">C</div>
             <div class="step-content">
-              <div class="step-title">「プレイヤー」から「情報発信者」への昇華</div>
-              <div class="step-desc">自分が実践して稼いだ「リアルな手順」そのものが、これから始めたい初心者にとって最大の価値になります。その実績をもとに情報発信を行い、アドバイザーやコンサルタント側に回ることで、労働ゼロの「完全なる純利10万円」の柱へと成長させます。</div>
+              <div class="step-title"><strong>【真のゴール】「プレイヤー」から「本質的なセールス・マーケティングの体得」への昇華</strong></div>
+              <div class="step-desc">あなたがMNPの実践で得た「リアルな手順」「失敗談」「利益を出したデータ」そのものが、これから「自力で稼ぎたい」と願う初心者にとって最大の価値（商品）になります。この一連のプロセスをベースに、XやLINEを活用して他者に価値を提供し、アドバイザーやコンサルタント側に回ることで、ビジネスの本質である<strong>【集客・教育・販売（マーケティングとセールス）の力】</strong>を完璧に自分のモノにします。これこそが、どんな市場に変わっても一生食いっぱぐれない最強の武器になります。</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- やっぴーさんからのメッセージ（まとめ） -->
+    <!-- やっぴーさんからのメッセージ＆出口戦略（Exit）への導線 -->
     <div class="summary-box">
       <div style="font-size:13px; font-weight:700; color:#1d4ed8; margin-bottom:8px;">💡 やっぴーからのメッセージ</div>
       <p style="font-size:14px; color:#0c1445; line-height:1.8;">
-        MNP副業の素晴らしいところは、センスや才能ではなく<strong>「知っているか知らないか」「手順通りにやるかやらないか」</strong>の差だけで、誰でも全く同じ利益を再現できる点にあります。<br>
-        この30日間ロードマップを1ステップずつ進めていけば、確実に最初の成功体験が掴めます。わからないことや不安なポイントがあれば、いつでも<strong>「無料相談」</strong>のボタンから気軽にメッセージを送ってくださいね！一緒に理想の未来を作っていきましょう！
+        MNP副業の素晴らしいところは、センスや才能ではなく「知っているか知らないか」「手順通りにやるかやらないか」の差だけで、誰でも全く同じ利益を再現できる点にあります。<br><br>
+        まずは身近なスマホを使い、リスクを抑えて「自力でお金を生み出す感覚」を掴むことから始めてみませんか？この30日間ロードマップを1ステップずつ進めていけば、確実に最初の成功体験が掴めます。
       </p>
-      <div style="margin-top:14px; padding-top:12px; border-top:1px dashed #bfdbfe; text-align:right; font-size:12px; color:#888;">
+      
+      <!-- 出口戦略（Exit）の解説ページへ直接ジャンプさせるための案内ボタン -->
+      <a href="https://yappi7000.github.io/Exit/#milestone" class="next-page-btn">
+        💰 利益を確実に残す「具体的な出口戦略」を今すぐ見る
+      </a>
+
+      <div style="margin-top:18px; padding-top:12px; border-top:1px dashed #bfdbfe; text-align:right; font-size:12px; color:#888;">
         ✍️ やっぴー（<a href="https://twitter.com/8p_thankyou" style="color:#888; text-decoration: none;">@8p_thankyou</a>）
       </div>
     </div>
