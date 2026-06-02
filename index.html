@@ -1,508 +1,297 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MNP副業 30日間完全ロードマップ ＋3ヶ月後の目標設定</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Sans+JP:wght=100..900&display=swap" rel="stylesheet">
-    <!-- Font Awesome (アイコン用) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --- カラーパレット（白とブルー基調） --- */
-        :root {
-            --bg-primary: #f8fafc;       
-            --bg-secondary: #ffffff;     
-            --bg-tertiary: #f1f5f9;      
-            --text-primary: #0f172a;     
-            --text-secondary: #475569;   
-            --accent-blue: #0284c7;      
-            --accent-light-blue: #e0f2fe;
-            --accent-green: #10b981;     
-            --accent-purple: #7c3aed;     
-            --accent-orange: #ea580c;     
-            --border-color: #cbd5e1;     
-            --font-sans: 'Noto Sans JP', sans-serif;
-            --font-mono: 'DM Mono', monospace;
-            /* 誘導ボタン用カラー */
-            --brand-line: #06c755;
-            --brand-x: #0f172a;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNP副業 30日間完全ロードマップ ＋ 3ヶ月後の目標設定</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@700&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Sans JP', sans-serif; background:#f5f5f0; color:#1a1a1a; padding:40px 20px; }
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            line-height: 1.7;
-            padding: 20px;
-        }
+  /* ===== 共通パーツ ===== */
+  .page { max-width:760px; margin:0 auto 80px; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.08); }
+  .page-header { padding:36px 40px 28px; }
+  .page-content { padding:0 40px 40px; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  .badge { display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.12em; padding:4px 12px; border-radius:999px; margin-bottom:10px; }
+  .page-title { font-family:'Noto Serif JP', serif; font-size:28px; font-weight:700; line-height:1.4; margin-bottom:8px; }
+  .page-subtitle { font-size:14px; line-height:1.7; }
 
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 30px;
-        }
+  .section { margin-bottom:36px; }
+  .section-label { font-size:11px; font-weight:700; letter-spacing:0.1em; margin-bottom:6px; }
+  .section h2 { font-size:20px; font-weight:700; margin-bottom:14px; line-height:1.4; }
+  .body-text { font-size:14px; color:#444; line-height:1.8; margin-bottom:12px; }
 
-        header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 15px;
-            background: linear-gradient(to right, var(--accent-blue), #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  .divider { border:none; border-top:2px dashed #e0e0e0; margin:36px 0; }
 
-        /* タイトル内の「＋」以降を少し強調するサブクラス（任意） */
-        header h1 span {
-            display: inline-block;
-            background: linear-gradient(to right, #06b6d4, var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+  /* カード */
+  .card { border-radius:12px; padding:18px 20px; margin-bottom:12px; }
+  .card-grid { display:grid; gap:12px; margin-top:14px; }
+  .card-grid-2 { grid-template-columns:1fr 1fr; }
+  .card-grid-3 { grid-template-columns:1fr 1fr 1fr; }
 
-        header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-        }
+  /* フロー */
+  .flow-row { display:flex; align-items:center; gap:10px; margin:16px 0; flex-wrap:wrap; }
+  .flow-box { flex:1; min-width:90px; border-radius:10px; padding:12px 14px; text-align:center; }
+  .flow-box .fl-label { font-size:10px; font-weight:700; letter-spacing:0.08em; margin-bottom:4px; }
+  .flow-box .fl-val { font-size:13px; font-weight:700; line-height:1.4; }
+  .flow-arrow { font-size:20px; color:#999; flex-shrink:0; }
 
-        /* --- クイックナビゲーション スタイル --- */
-        .nav-container {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
+  /* ステップ */
+  .step-list { display:flex; flex-direction:column; gap:12px; margin-top:14px; }
+  .step-item { display:flex; gap:14px; align-items:flex-start; }
+  .step-num { width:28px; height:28px; min-width:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; margin-top:2px; }
+  .step-content .step-title { font-size:14px; font-weight:700; margin-bottom:4px; }
+  .step-content .step-desc { font-size:13px; color:#555; line-height:1.7; }
 
-        .nav-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent-blue);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+  /* 計算表 */
+  .calc-table { width:100%; border-radius:12px; overflow:hidden; margin-top:14px; }
+  .calc-row { display:flex; justify-content:space-between; align-items:center; padding:11px 18px; font-size:14px; }
+  .calc-row:nth-child(odd) { background:#f8f8f5; }
+  .calc-total { font-weight:700; font-size:17px; padding:14px 18px; display:flex; justify-content:space-between; align-items:center; }
 
-        .nav-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            list-style: none;
-        }
+  /* まとめ */
+  .summary-box { border-radius:14px; padding:24px 28px; margin-top:28px; }
 
-        .nav-links a {
-            display: flex;
-            align-items: center;
-            background-color: var(--bg-tertiary);
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid transparent;
-        }
+  /* テーブル */
+  table { width:100%; border-collapse:collapse; font-size:13px; margin-top:12px; }
+  th { padding:10px 14px; text-align:left; font-weight:700; font-size:12px; }
+  td { padding:9px 14px; border-top:1px solid #eee; vertical-align:middle; }
 
-        .nav-links a:hover {
-            background-color: var(--accent-light-blue);
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            transform: translateY(-2px);
-        }
+  /* クイックジャンプ・ナビ */
+  .nav-box { display: block; text-decoration: none; color: inherit; transition: background 0.2s; }
+  .nav-box:hover { background: #dbeafe !important; }
 
-        .nav-links a i {
-            margin-right: 8px;
-            color: var(--accent-blue);
-        }
+  /* ユーティリティ */
+  .bg-red-light    { background:#fef2f2; border:1px solid #fecaca; }
+  .bg-green-light  { background:#f0fdf4; border:1px solid #bbf7d0; }
+  .bg-yellow-light { background:#fefce8; border:1px solid #fde047; }
+  .text-red   { color:#dc2626; }
+  .text-green { color:#16a34a; }
+  .tag { display:inline-block; font-size:11px; font-weight:700; padding:2px 8px; border-radius:4px; margin-right:4px; }
 
-        /* --- コンテンツ・タイムライン スタイル --- */
-        h2.section-title {
-            font-size: 1.6rem;
-            margin: 40px 0 20px;
-            padding-left: 12px;
-            border-left: 4px solid var(--accent-blue);
-            color: var(--accent-blue);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            scroll-margin-top: 20px;
-        }
+  /* ===== テーマ: ネイビー ===== */
+  .theme-navy .page-header { background:linear-gradient(135deg,#0c1445 0%,#1a3a8f 60%,#2563eb 100%); color:#fff; }
+  .theme-navy .badge { background:rgba(255,255,255,0.18); color:#fff; }
+  .theme-navy .page-title { color:#fff; }
+  .theme-navy .page-subtitle { color:rgba(255,255,255,0.8); }
+  .theme-navy .section-label { color:#1d4ed8; }
+  .theme-navy .section h2 { color:#0c1445; }
+  .theme-navy .flow-box { background:#eff6ff; }
+  .theme-navy .flow-box .fl-label { color:#1d4ed8; }
+  .theme-navy .flow-box .fl-val { color:#0c1445; }
+  .theme-navy .step-num { background:#1a3a8f; color:#fff; }
+  .theme-navy .card { background:#eff6ff; border:1px solid #bfdbfe; }
+  .theme-navy .card.featured { background:#dbeafe; border:2px solid #1d4ed8; }
+  .theme-navy .calc-total { background:#0c1445; color:#fff; }
+  .theme-navy .summary-box { background:#eff6ff; border:2px solid #bfdbfe; }
+  .theme-navy th { background:#0c1445; color:#fff; }
+  .theme-navy tr:nth-child(even) td { background:#eff6ff; }
 
-        .timeline {
-            position: relative;
-            margin: 30px 0;
-            padding-left: 30px;
-            border-left: 2px solid var(--border-color);
-        }
-
-        .day-card {
-            position: relative;
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .day-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .day-card::before {
-            content: "";
-            position: absolute;
-            left: -37px;
-            top: 28px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--border-color);
-            border: 3px solid var(--bg-primary);
-        }
-
-        .day-card.active::before {
-            background-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.2);
-        }
-
-        .day-badge {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-        }
-
-        .day-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .day-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .task-list {
-            list-style: none;
-            background-color: var(--bg-tertiary);
-            padding: 15px 20px;
-            border-radius: 8px;
-        }
-
-        .task-list li {
-            font-size: 0.9rem;
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 8px;
-            color: var(--text-primary);
-        }
-
-        .task-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .task-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent-green);
-            font-weight: bold;
-        }
-
-        .tips-box {
-            margin-top: 15px;
-            padding: 12px 15px;
-            background-color: rgba(234, 88, 12, 0.08);
-            border-left: 3px solid var(--accent-orange);
-            border-radius: 0 8px 8px 0;
-            font-size: 0.85rem;
-            color: #7c2d12;
-        }
-
-        .tips-box strong {
-            color: var(--accent-orange);
-        }
-
-        /* --- コンバージョンエリア（誘導ボタン） スタイル --- */
-        .cta-container {
-            margin-top: 60px;
-            padding: 40px 30px;
-            background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%); 
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-        }
-
-        .cta-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--text-primary);
-        }
-
-        .cta-text {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 16px 24px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: pointer;
-        }
-
-        .btn-line {
-            background-color: var(--brand-line);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(6, 199, 85, 0.2);
-        }
-
-        .btn-line:hover {
-            background-color: #05b04b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
-        }
-
-        .btn-x {
-            background-color: var(--brand-x);
-            color: #ffffff;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
-        }
-
-        .btn-x:hover {
-            background-color: #1e293b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.4);
-        }
-
-        .btn i {
-            font-size: 1.3rem;
-        }
-
-        /* レスポンシブ対応 */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .nav-links { grid-template-columns: 1fr; }
-            .cta-container { padding: 30px 20px; }
-            .btn { font-size: 0.95rem; padding: 14px 20px; }
-        }
-    </style>
+  @media print { .page { box-shadow:none; margin-bottom:0; page-break-after:always; } }
+  @media (max-width:600px) {
+    .page-content { padding:0 20px 32px; }
+    .page-header  { padding:28px 20px 20px; }
+    .card-grid-2,.card-grid-3 { grid-template-columns:1fr; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- 修正されたヘッダー部分 -->
-        <header>
-            <h1>MNP副業 30日間完全ロードマップ <span>＋3ヶ月後の目標設定</span></h1>
-            <p>未経験からステップバイステップで確実な継続収益スキームを構築する</p>
-        </header>
+<!-- =====================================================
+  メインコンテンツ：30日間完全ロードマップ
+====================================================== -->
+<div class="page theme-navy">
+  <div class="page-header">
+    <span class="badge">🚀 LINE登録特典 — 実践型バイブル</span>
+    <h1 class="page-title">MNP副業 30日間完全ロードマップ<br>＋3ヶ月後の目標設定</h1>
+    <p class="page-subtitle">📘 未経験からステップバイステップで確実な継続収益スキームを構築するための実践教科書です。</p>
+  </div>
+  
+  <div class="page-content">
 
-        <!-- クイックナビゲーション（目次） -->
-        <nav class="nav-container">
-            <div class="nav-title">
-                <i class="fa-solid fa-bars-staggered"></i> 目次 / クイックジャンプ
-            </div>
-            <ul class="nav-links">
-                <li><a href="#phase1"><i class="fa-solid fa-graduation-cap"></i> DAY 1–10: 基礎知識・準備</a></li>
-                <li><a href="#phase2"><i class="fa-solid fa-calculator"></i> DAY 11–20: 弾構築・シミュレーション</a></li>
-                <li><a href="#phase3"><i class="fa-solid fa-shop"></i> DAY 21–30: 案件開拓・初契約</a></li>
-                <li><a href="#milestone"><i class="fa-solid fa-flag-checkered"></i> 3ヶ月目以降のゴール</a></li>
-            </ul>
-        </nav>
-
-        <!-- PHASE 1 -->
-        <h2 id="phase1" class="section-title"><i class="fa-solid fa-graduation-cap"></i> DAY 1–10: 基礎知識の習得と事前準備</h2>
-        <div class="timeline">
-            
-            <div class="day-card active">
-                <div class="day-badge">DAY 01–03</div>
-                <h3>仕組みの理解とルール確認</h3>
-                <p>MNP（携帯電話番号ポータビリティ）で利益が出る仕組み（インセンティブ、キャッシュバック）を学びます。キャリアの違約金撤廃やブラックリストの条件など、最新のルールと注意点を徹底的に頭に叩き込みましょう。</p>
-                <ul class="task-list">
-                    <li>主要3キャリア（docomo, au, SoftBank）とサブブランドの基本料金プランのリサーチ</li>
-                    <li>短期解約ブラックリスト（一般的に180日以内の解約が基準とされるケースが多い）の仕組み理解</li>
-                    <li>MNP予約番号の発行手順と有効期限（15日間）のルール確認</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-badge">DAY 04–07</div>
-                <h3>軍資金の確保と必要ツールの準備</h3>
-                <p>MNP副業を円滑に進めるためには、事前の環境構築が不可欠です。契約時の事務手数料や数ヶ月分の維持費をカバーするための資金準備と、契約管理用のツールを用意します。</p>
-                <ul class="task-list">
-                    <li>初期費用（目安：3万〜5万円）の準備（自己資金または自己アフィリエイト・不用品転売などで調達）</li>
-                    <li>本人確認書類（マイナンバーカード、運転免許証など）の有効期限チェック</li>
-                    <li>契約管理用スプレッドシート（またはExcel）の作成（契約日、解約月、月額維持費の管理用）</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-badge">DAY 08–10</div>
-                <h3>クレジットカードとメイン回線の最適化</h3>
-                <p>月々の支払いや契約審査をスムーズに通すため、信頼性の高い決済手段を確保します。また、ご自身のメイン回線がMNPの「弾」として動かせる状態か確認します。</p>
-                <ul class="task-list">
-                    <li>決済用クレジットカードの用意（ポイント還元率が高く、審査に強いカードが望ましい）</li>
-                    <li>現在契約中のスマートフォン回線の契約内容（更新月、名義、端末残債）の確認</li>
-                </ul>
-            </div>
-
+    <!-- クイックジャンプ（目次） -->
+    <div class="section" style="margin-top: 28px;">
+      <div class="card" style="background:#f8f8f5; border:1px solid #e0e0e0; padding:24px;">
+        <div style="font-size:13px; font-weight:700; color:#1a3a8f; margin-bottom:14px;">🧭 目次 / クイックジャンプ</div>
+        <div class="card-grid card-grid-2">
+          <a href="#day1" class="nav-box card featured" style="margin-bottom:0; padding:14px;">
+            <div style="font-weight:700; font-size:13px; color:#0c1445;">🎓 DAY 1-10</div>
+            <div style="font-size:12px; color:#444; margin-top:2px;">基礎知識の習得と事前準備</div>
+          </a>
+          <a href="#day11" class="nav-box card" style="margin-bottom:0; padding:14px;">
+            <div style="font-weight:700; font-size:13px; color:#0c1445;">📱 DAY 11-20</div>
+            <div style="font-size:12px; color:#444; margin-top:2px;">弾構築とシミュレーション</div>
+          </a>
+          <a href="#day21" class="nav-box card" style="margin-bottom:0; padding:14px;">
+            <div style="font-weight:700; font-size:13px; color:#0c1445;">🏪 DAY 21-30</div>
+            <div style="font-size:12px; color:#444; margin-top:2px;">案件開拓と初契約の実践</div>
+          </a>
+          <a href="#milestone" class="nav-box card" style="margin-bottom:0; padding:14px; border:1px dashed #1a3a8f;">
+            <div style="font-weight:700; font-size:13px; color:#1d4ed8;">🏁 3ヶ月目以降のゴール</div>
+            <div style="font-size:12px; color:#444; margin-top:2px;">月10万円を稼ぐ仕組み化</div>
+          </a>
         </div>
-
-        <!-- PHASE 2 -->
-        <h2 id="phase2" class="section-title"><i class="fa-solid fa-calculator"></i> DAY 11–20: 「弾」の構築と収支シミュレーション</h2>
-        <div class="timeline">
-
-            <div class="day-card">
-                <div class="day-badge">DAY 11–15</div>
-                <h3>新規「弾（MNP元回線）」の仕込み</h3>
-                <p>MNPの最大の肝となる「乗り換え元の回線（通称：弾）」を用意します。初期費用や維持費が極めて安く、即時または短期間でMNP予約番号が発行できるMVNOを戦略的に選択・契約します。</p>
-                <ul class="task-list">
-                    <li>格安MVNO（povo 2.0、リンクスメイト、mineoなど）の最新キャンペーン情報の比較</li>
-                    <li>MNP元となる回線の新規契約手続き（まずは安全に1〜2回線からスタート）</li>
-                    <li>SIMカードが手元に届いた後の開通確認と、初期設定の完了</li>
-                </ul>
-                <div class="tips-box">
-                    <strong>💡 最新Tips：</strong> 現在はpovoなどの基本料0円プランや、事務手数料が安いMVNOを組み合わせた弾構築が主流です。ただし、短期間での大量解約は厳禁です。
-                </div>
-            </div>
-
-            <div class="day-card">
-                <div class="day-badge">DAY 16–20</div>
-                <h3>収支シミュレーターの作成と案件選定基準の設定</h3>
-                <p>感覚で動くと赤字になるリスクがあります。事務手数料、初月日割り料金、数ヶ月分の維持費、端末売却益（またはキャッシュバック額）をすべて数値化し、1回線あたりの「純利益」を計算します。</p>
-                <ul class="task-list">
-                    <li>スプレッドシートに「支出（初期費用＋維持費＋解約費）」と「収入（CB＋端末益）」の計算式を組み込む</li>
-                    <li>最低ラインとなる利益基準（例：1回線あたり純利2万円以上など）の設定</li>
-                    <li>違約金や端末購入サポート（プログラム）を利用する場合の、将来的な返却リスクの計算</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- PHASE 3 -->
-        <h2 id="phase3" class="section-title"><i class="fa-solid fa-shop"></i> DAY 21–30: 案件開拓と初めてのMNP契約</h2>
-        <div class="timeline">
-
-            <div class="day-card">
-                <div class="day-badge">DAY 21–23</div>
-                <h3>店舗・オンライン案件の情報収集</h3>
-                <p>実際の利益を生み出すための「優良案件」を探します。家電量販店、キャリアショップ、出張催事（サテライトイベント）、そしてSNS（Xなど）に転がっているクローズドな情報を精査します。</p>
-                <ul class="task-list">
-                    <li>週末（金〜日）の家電量販店（ヨドバシ、ビックカメラ、ヤマダ等）のスマホコーナー偵察</li>
-                    <li>まず「MNP キャッシュバック 最新」などで最新情報を検索して相場感を把握する</li>
-                    <li>地域の店舗の公式Xアカウントや、MNP情報発信者のポストから「一括1円」「高額CB」の条件を抽出</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-badge">DAY 24–27</div>
-                <h3>MNP予約番号の発行と事前審査対策</h3>
-                <p>狙う案件が決まったら、DAY 11–15で仕込んだ弾からMNP予約番号を発行します。また、当日に店舗でスムーズに契約が通るよう、必要書類を最終チェックします。</p>
-                <ul class="task-list">
-                    <li>乗り換え元MVNOのマイページからMNP予約番号の発行申請（有効期限残みに注意）</li>
-                    <li>店舗への事前予約、または混雑を避けた時間帯の訪問スケジューリング</li>
-                    <li>オプション強制加入条件の有無、およびその解約可能時期の確認（店員への確認リスト作成）</li>
-                </ul>
-            </div>
-
-            <div class="day-card">
-                <div class="day-badge">DAY 28–30</div>
-                <h3>店舗訪問・初契約の実行とアフターフォロー</h3>
-                <p>いよいよ実践です。店員さんと良好な関係を築きつつ、事前にシミュレーションした条件通りの契約を結びます。契約後は速やかに端末の処理や、維持期間の管理に移行します。</p>
-                <ul class="task-list">
-                    <li>店舗にてMNP契約の実行（契約書の控え、キャッシュバック条件の書面を必ず保管）</li>
-                    <li>獲得した端末の検品（買取店に売却する場合は未開封状態を維持、または自分で使用）</li>
-                    <li>管理シートに「契約日」「次回MNP可能（ブラック回避）予定日」を即座に入力</li>
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- MILESTONE -->
-        <h2 id="milestone" class="section-title"><i class="fa-solid fa-flag-checkered"></i> 3ヶ月目以降のゴール設定</h2>
-        <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-top: 20px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-            <h3 style="margin-bottom: 15px; color: var(--accent-purple);">🚀 月10万円を安定して稼ぐスキームへの昇華</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 15px;">
-                最初の30日間で1〜2回線のMNPに成功したら、次はその経験を「仕組み化」して拡大していきます。
-            </p>
-            <ul class="task-list" style="background-color: var(--bg-tertiary); border: 1px solid var(--border-color);">
-                <li><strong>2ヶ月目：</strong> 家族名義の協力（名義分散）を得て、同時に動かせる回線数を4〜6回線に拡大</li>
-                <li><strong>3ヶ月目：</strong> 複数キャリア（SoftBank系・UQ系など）の併用による、最適なデュアルSIM運用の内製化</li>
-                <li><strong>仕組み化：</strong> SNSやLINEでの再現記録の発信、同じ志を持つ仲間とのリアルタイムな店舗情報シェアコミュニティの活用</li>
-            </ul>
-        </div>
-
-        <!-- コンバージョンエリア（誘導ボタン） -->
-        <div class="cta-container">
-            <h3 class="cta-title">最新のMNP案件・攻略情報をリアルタイムで配信中！</h3>
-            <p class="cta-text">
-                日々変動するキャリアのキャンペーンや、クローズドな一括1円案件の速報、<br>
-                管理シートの具体的なテンプレートは、公式SNS＆LINEで限定公開しています。
-            </p>
-            <div class="cta-buttons">
-                <!-- LINE誘導ボタン -->
-                <a href="https://lin.ee/AsTWK4D" class="btn btn-line" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-line"></i> 公式LINEで限定情報を探す
-                </a>
-                <!-- X(旧Twitter)誘導ボタン -->
-                <a href="https://x.com/8p_thankyou" class="btn btn-x" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-x-twitter"></i> YappyのX（@8p_thankyou）をフォローする
-                </a>
-            </div>
-        </div>
-
+      </div>
     </div>
+
+    <!-- DAY 1-10 -->
+    <div id="day1" class="section">
+      <div class="section-label">📌 PHASE 01 ｜ DAY 1 - 10</div>
+      <h2>🎓 基礎知識の習得と事前準備</h2>
+      <p class="body-text">最初の10日間は、MNPの仕組みを完全に腹落ちさせ、実践で絶対に失敗しないための土台を固める期間です。</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">仕組みの理解とルール確認（DAY 01-03）</div>
+            <div class="step-desc">「なぜ他社に乗り換えるだけで利益が出るのか」の構造を100%理解します。併せて、携帯キャリア各社の最新の審査基準やブラックリストの判定条件を頭叩き込みます。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">必要書類・インフラの完全準備（DAY 04-07）</div>
+            <div class="step-desc">契約時に求められる本人確認書類（運転免許証、マイナンバーカード等）や、引き落とし用のクレジットカード・金融口座を確実に手配します。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">資金計画の策定（DAY 08-10）</div>
+            <div class="step-desc">初月の初期費用、月々の維持費、端末の売却益が手元に入るまでのキャッシュフロー（資金の流れ）を明確に計算し、無理のない計画を立てます。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- DAY 11-20 -->
+    <div id="day11" class="section">
+      <div class="section-label">📌 PHASE 02 ｜ DAY 11 - 20</div>
+      <h2>📱 弾（たま）構築と収支シミュレーション</h2>
+      <p class="body-text">中盤の10日間は、乗り換えの元手となる「仕込み回線」を実際に用意し、具体的な利益予想を数字に落とし込むフェーズです。</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">「弾（仕込み回線）」の新規契約（DAY 11-14）</div>
+            <div class="step-desc">MNPの原資となる格安SIM（MVNO）などの回線を新規で手配します。維持費が最も安く、かつMNP予約番号の発行がスムーズなMVNOを厳選して契約します。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <div class="step-title">MNP予約番号の発行とタイミング管理（DAY 11-14）</div>
+            <div class="step-desc">仕込んだ回線からMNP予約番号を発行します。予約番号には「15日間」の有効期限があるため、のちの店舗契約のスケジュールから逆算して最適日に取得します。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div class="step-content">
+            <div class="step-title">狙うべきキャリア・端末の選定（DAY 15-17）</div>
+            <div class="step-desc">ドコモ、au、ソフトバンク等の主要キャリアの現在のキャンペーン動向をリサーチします。今、どの端末（iPhone等）が最も転売効率（利益率）が高いかを特定します。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">7</div>
+          <div class="step-content">
+            <div class="step-title">徹底的な収支シミュレーション（DAY 18-20）</div>
+            <div class="step-desc">手配料、事務手数料、初月プラン料金、端末代、買取屋の最新買取価格のすべての数字を「引き算」し、1回線あたり確実に数万円以上の純利益が残る計算式を確定させます。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- DAY 21-30 -->
+    <div id="day21" class="section">
+      <div class="section-label">📌 PHASE 03 ｜ DAY 21 - 30</div>
+      <h2>🏪 案件開拓と初契約の実践</h2>
+      <p class="body-text">最後の10日間で、ついに実際の利益を確定させに行きます。手配師の活用、店舗での契約、そして現金化までを一気に駆け抜けます。</p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">8</div>
+          <div class="step-content">
+            <div class="step-title">優良案件・手配師の開拓と連携（DAY 21-23）</div>
+            <div class="step-desc">自力での店舗探しに時間を消耗せず、信頼できる手配師ネットワークを活用します。条件の良いシークレット案件を確保し、事前の来店予約まで確実に完了させます。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">9</div>
+          <div class="step-content">
+            <div class="step-title">ショップ・家電量販店での本契約（DAY 24-27）</div>
+            <div class="step-desc">準備した書類とMNP予約番号を持って予約店舗へ赴きます。スタッフの指示に従って契約を済ませ、割引端末やキャッシュバック（CB）をその場で回収します。</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">10</div>
+          <div class="step-content">
+            <div class="step-title">端末売却と利益の即時確定（DAY 28-30）</div>
+            <div class="step-desc">手に入れた端末を未開封のまま最高値の買取業者へ持ち込み（または郵送）、売却します。すべての初期コストをここで回収し、人生初の「MNP純利益」を確定させます。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- 3ヶ月後の目標設定（出口戦略の先へ） -->
+    <div id="milestone" class="section">
+      <div class="section-label" style="color:#1d4ed8;">🏁 MILESTONE ｜ 3ヶ月目以降のゴール</div>
+      <h2>📈 月10万円を稼ぐ継続収益スキームの構築</h2>
+      <p class="body-text">30日間のロードマップをクリアし、1回きりの利益で終わらせてはもったいありません。ここからが本格的な資産構築のスタートです。</p>
+
+      <div class="card featured">
+        <div style="font-size:14px; font-weight:700; color:#0c1445; margin-bottom:12px;">🌟 継続して月10万円を生み出す3ステップ</div>
+        
+        <div class="step-list" style="margin-top:0;">
+          <div class="step-item">
+            <div class="step-num" style="background:#1d4ed8;">A</div>
+            <div class="step-content">
+              <div class="step-title">複数名義・家族運用の仕組み化</div>
+              <div class="step-desc">ご自身の名義だけでなく、ルールを正しく守った上で「利用者登録」を駆使し、家族名義などを含めた複数回線のローテーションを組みます。これにより、毎月・毎シーズン途切れることなく高額案件を回せる「仕組み」が完成します。</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:#1d4ed8;">B</div>
+            <div class="step-content">
+              <div class="step-title">手配師・コミュニティの常時活用</div>
+              <div class="step-desc">一度利益を出した手配師やコミュニティとの繋がりを密にし、一般のネット上には絶対に出回らない「店舗限定の極秘クローズド案件」の案内を常に優先的に受け取れるポジションを確立します。</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:#1d4ed8;">C</div>
+            <div class="step-content">
+              <div class="step-title">「プレイヤー」から「情報発信者」への昇華</div>
+              <div class="step-desc">自分が実践して稼いだ「リアルな手順」そのものが、これから始めたい初心者にとって最大の価値になります。その実績をもとに情報発信を行い、アドバイザーやコンサルタント側に回ることで、労働ゼロの「完全なる純利10万円」の柱へと成長させます。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- やっぴーさんからのメッセージ（まとめ） -->
+    <div class="summary-box">
+      <div style="font-size:13px; font-weight:700; color:#1d4ed8; margin-bottom:8px;">💡 やっぴーからのメッセージ</div>
+      <p style="font-size:14px; color:#0c1445; line-height:1.8;">
+        MNP副業の素晴らしいところは、センスや才能ではなく<strong>「知っているか知らないか」「手順通りにやるかやらないか」</strong>の差だけで、誰でも全く同じ利益を再現できる点にあります。<br>
+        この30日間ロードマップを1ステップずつ進めていけば、確実に最初の成功体験が掴めます。わからないことや不安なポイントがあれば、いつでも<strong>「無料相談」</strong>のボタンから気軽にメッセージを送ってくださいね！一緒に理想の未来を作っていきましょう！
+      </p>
+      <div style="margin-top:14px; padding-top:12px; border-top:1px dashed #bfdbfe; text-align:right; font-size:12px; color:#888;">
+        ✍️ やっぴー（<a href="https://twitter.com/8p_thankyou" style="color:#888; text-decoration: none;">@8p_thankyou</a>）
+      </div>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
